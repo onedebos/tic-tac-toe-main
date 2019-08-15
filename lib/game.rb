@@ -2,13 +2,14 @@
 
 require_relative 'player.rb'
 
+# class tic-tac-toe game
 class Game
   attr_accessor :board, :end_game
   def initialize
     @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-    @player_1 = Player.new('Player 1', 'X')
-    @player_2 = Player.new('Player 2', 'O')
-    @current_player = @player_1
+    @player1 = Player.new('Player 1', 'X')
+    @player2 = Player.new('Player 2', 'O')
+    @current_player = @player1
     @end_game = false
   end
 
@@ -19,7 +20,6 @@ class Game
     puts " #{@board[3]} | #{@board[4]} | #{@board[5]}"
     puts '-----------'
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]}"
-    puts "\n"
   end
 
   def draw_legend
@@ -31,7 +31,7 @@ class Game
   end
 
   def which_player?
-    @current_player = @current_player == @player_1 ? @player_2 : @player_1
+    @current_player = @current_player == @player1 ? @player2 : @player1
   end
 
   def player_input
@@ -63,10 +63,10 @@ class Game
         @end_game = true
       end
     end
-    if @player_1.fill_cells.size + @player_2.fill_cells.size >= 9
+    if @player1.fill_cells.size + @player2.fill_cells.size >= 9
       puts "It's a draw."
       @end_game = true
     end
     @end_game
-   end
+  end
 end
