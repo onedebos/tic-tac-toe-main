@@ -1,22 +1,19 @@
 # frozen_string_literal: true
 
 class Board
-    attr_accessor :board, :end_game
+    attr_accessor :board
     def initialize
-      @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-      @player_1 = Player.new('player 1', 'X')
-      @player_2 = Player.new('player 2', 'O')
-      @current_player = @player_1
-      @end_game = false
+      @board = [" "," "," "," "," "," "," "," "," "]
     end
   
     def draw_board
-      puts "#{@board[0]} |#{@board[1]} |#{@board[2]} | "
-      puts '-------------'
-      puts "#{@board[3]} |#{@board[4]} |#{@board[5]} | "
-      puts '-------------'
-      puts "#{@board[6]} |#{@board[7]} |#{@board[8]} | "
-      puts '-------------'
+      puts "\n"
+      puts " #{@board[0]} | #{@board[1]} | #{@board[2]}"
+      puts '-----------'
+      puts " #{@board[3]} | #{@board[4]} | #{@board[5]}"
+      puts '-----------'
+      puts " #{@board[6]} | #{@board[7]} | #{@board[8]}"
+      puts "\n"
     end
   
     def draw_legend
