@@ -13,4 +13,15 @@ class Game
         puts " You need to enter a number between 1 and 9"
      end
    end
+
+   def player_move
+    move = player_input
+    if @board[move] == " "
+      @board[move] = @current_player.symbol
+      @current_player.fill_cells << move
+    else
+      puts "This cell is not available."
+    end
+   end
+   
 end
