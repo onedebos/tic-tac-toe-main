@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TicTacToe
+class Board
     attr_accessor :cells, :end_game
     def initialize
       @cells = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
