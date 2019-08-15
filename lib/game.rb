@@ -24,4 +24,20 @@ class Game
     end
    end
    
+   def player_win?
+    conditions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+    conditions.each do |condition|
+        if (conditions - @current_player.fill_cells).empty? 
+            puts "#{@current_player.name} wins"
+            @end_game = true
+        end
+     end
+     if @player_1.fill_cells.size + @player_2.fill_cells.size >=9
+        puts "it's a draw."
+        @end_game = true
+     end
+     @end_game
+    end
+   end
+
 end
