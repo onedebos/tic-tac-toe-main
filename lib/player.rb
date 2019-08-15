@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Player
   attr_accessor :name, :symbol, :fill_cells
   def initialize(name, symbol)
