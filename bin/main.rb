@@ -7,7 +7,7 @@ game = Game.new
 puts 'Welcome to Tic Tac Toe game'
 
 game.draw_board
-until game.player_wins? 
+until game.player_wins?
   game.player_move
   game.draw_board
   game.player_wins?
