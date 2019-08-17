@@ -9,5 +9,3 @@ class Player
     @fill_cells = []
   end
 end
-
-

@@ -4,8 +4,8 @@ require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
 require_relative 'player_input.rb'
 
+# module defining drawing
 module Drawing
-  
   def draw_board
     puts "\n"
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]}"
@@ -24,7 +24,7 @@ module Drawing
   end
 
   def unavailable
-      puts 'This cell is not available.'
+    puts 'This cell is not available.'
   end
 
   def did_win
@@ -43,8 +43,6 @@ module Drawing
   def repeat_input
     puts ' You need to enter a number between 1 and 9.'
   end
-
-  
 end
 
 game = Game.new

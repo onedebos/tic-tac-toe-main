@@ -2,7 +2,6 @@
 
 require_relative 'player.rb'
 
-
 # class tic-tac-toe game
 class Game
   include Drawing
@@ -18,7 +17,7 @@ class Game
   def draw_this
     draw_board
   end
-  
+
   def legend_draw
     draw_legend
   end

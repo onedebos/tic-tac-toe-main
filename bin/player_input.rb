@@ -9,4 +9,3 @@ def player_input
     repeat_input
   end
 end
-
