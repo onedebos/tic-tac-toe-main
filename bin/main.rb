@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
 
+# module creation
 module Drawing
-  
   def draw_board
     puts "\n"
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]}"
@@ -23,7 +22,7 @@ module Drawing
   end
 
   def unavailable
-      puts 'This cell is not available.'
+    puts 'This cell is not available.'
   end
 
   def did_win
@@ -52,7 +51,6 @@ module Drawing
       repeat_input
     end
   end
-  
 end
 
 game = Game.new
