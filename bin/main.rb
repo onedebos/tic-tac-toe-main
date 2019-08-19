@@ -2,7 +2,6 @@
 
 require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
-require_relative 'player_input.rb'
 
 module Drawing
   
@@ -44,15 +43,24 @@ module Drawing
     puts ' You need to enter a number between 1 and 9.'
   end
 
+  def player_input
+    turn
+    input = gets.chomp.to_i
+    if input.between?(1, 9)
+      input - 1
+    else
+      repeat_input
+    end
+  end
   
 end
 
 game = Game.new
 puts 'Welcome to Tic Tac Toe game'
-game.draw_this
+game.draw_board
 until game.player_wins?
   game.player_move
-  game.draw_this
+  game.draw_board
   game.player_wins?
   game.which_player?
 end

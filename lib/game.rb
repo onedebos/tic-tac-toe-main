@@ -15,14 +15,6 @@ class Game
     @end_game = false
   end
 
-  def draw_this
-    draw_board
-  end
-  
-  def legend_draw
-    draw_legend
-  end
-
   def which_player?
     @current_player = @current_player == @player1 ? @player2 : @player1
   end
