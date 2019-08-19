@@ -5,6 +5,7 @@ require_relative 'player.rb'
 # class tic-tac-toe game
 class Game
   include Drawing
+
   attr_accessor :board, :end_game
   def initialize
     @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
@@ -12,14 +13,6 @@ class Game
     @player2 = Player.new('Player 2', 'O')
     @current_player = @player1
     @end_game = false
-  end
-
-  def draw_this
-    draw_board
-  end
-
-  def legend_draw
-    draw_legend
   end
 
   def which_player?
