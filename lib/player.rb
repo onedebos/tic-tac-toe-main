@@ -10,8 +10,8 @@ class Player
   end
 end
 
+# module declaration
 module Drawing
-  
   def draw_board
     puts "\n"
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]}"
@@ -20,5 +20,4 @@ module Drawing
     puts '-----------'
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]}"
   end
-  
 end
