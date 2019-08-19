@@ -11,13 +11,8 @@ class Player
 end
 
 # module declaration
-module Drawing
-  def draw_board
-    puts "\n"
-    puts " #{@board[0]} | #{@board[1]} | #{@board[2]}"
-    puts '-----------'
-    puts " #{@board[3]} | #{@board[4]} | #{@board[5]}"
-    puts '-----------'
-    puts " #{@board[6]} | #{@board[7]} | #{@board[8]}"
-  end
-end
+module PlayingGame end
+
+# !works weirdly. Game class cannot be initalized(error) w/o
+# playingGame module being declared here
+# even though Game has access to PG module from main.rb

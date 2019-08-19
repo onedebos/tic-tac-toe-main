@@ -3,7 +3,7 @@
 require_relative '../lib/game.rb'
 
 # module creation
-module Drawing
+module PlayingGame
   def draw_board
     puts "\n"
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]}"
