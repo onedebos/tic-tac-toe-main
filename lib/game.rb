@@ -4,7 +4,7 @@ require_relative 'player.rb'
 
 # class tic-tac-toe game
 class Game
-  include Drawing
+  include PlayingGame
 
   attr_accessor :board, :end_game
   def initialize
