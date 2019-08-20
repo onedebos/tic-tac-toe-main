@@ -1,5 +1,5 @@
 # tic-tac-toe
-This Project involves creating a tic-tac-toe game in ruby using OOP concepts.
+This Project involves creating a tic-tac-toe game in ruby using OOP concepts
 
 Used:
 - Ruby
