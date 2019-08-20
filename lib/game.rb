@@ -3,44 +3,73 @@
 require_relative 'player.rb'
 
 # class tic-tac-toe game
-class Game
-  include PlayingGame
+class Board
+  attr_reader :state, :first_row, :second_row, :third_row
+  attr_accessor :move
 
-  attr_accessor :board, :end_game
   def initialize
-    @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-    @player1 = Player.new('Player 1', 'X')
-    @player2 = Player.new('Player 2', 'O')
-    @current_player = @player1
-    @end_game = false
+    @state = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    @move = 0
   end
 
-  def which_player?
-    @current_player = @current_player == @player1 ? @player2 : @player1
+  def show_board
+    @first_row = " #{@state[1]} | #{@state[2]} | #{@state[3]} "
+    @second_row = " #{@state[4]} | #{@state[5]} | #{@state[6]} "
+    @third_row = " #{@state[7]} | #{@state[8]} | #{@state[9]} "
+    @breaker = '---|---|---'
+
+    p @first_row
+    p @breaker
+    p @second_row
+    p @breaker
+    p @third_row
   end
 
-  def player_move
-    move = player_input
-    until @board[move] == ' '
-      unavailable
-      move = player_input
-    end
-    @board[move] = @current_player.symbol
-    @current_player.fill_cells << move
+  def is_move_valid?(current_position)
+    @state[current_position.to_i].is_a?(Integer) && (1..9).include?(current_position.to_i) ? true : false
   end
 
-  def player_wins?
-    conditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
-    conditions.each do |condition|
-      if (condition - @current_player.fill_cells).empty?
-        did_win
-        @end_game = true
-      end
+  def add_move(position, symbol)
+    return nil unless position.is_a? Integer
+
+    @state[position] = symbol
+    @move += 1
+
+    if win?
+      1
+    elsif draw?
+      -1
+    else
+      0
     end
-    if @player1.fill_cells.size + @player2.fill_cells.size >= 9
-      draw
-      @end_game = true
-    end
-    @end_game
+  end
+
+  def win?
+    winning_diagonal? || winning_row? || winning_column?
+  end
+
+  def winning_diagonal?
+    left_diagonal = [@state[1], @state[5], @state[9]].uniq.length
+    right_diagonal = [@state[3], @state[5], @state[7]].uniq.length
+    true if [left_diagonal, right_diagonal].include?(1)
+  end
+
+  def winning_column?
+    left_column = [@state[1], @state[4], @state[7]].uniq.length
+    right_column = [@state[3], @state[6], @state[9]].uniq.length
+    center_column = [@state[2], @state[5], @state[8]].uniq.length
+
+    true if [left_column, center_column, right_column].include?(1)
+  end
+
+  def winning_row?
+    top_row = [@state[1], @state[2], @state[3]].uniq.length
+    center_row = [@state[4], @state[5], @state[6]].uniq.length
+    bottom_row = [@state[7], @state[8], @state[9]].uniq.length
+    true if [top_row, bottom_row, center_row].include?(1)
+  end
+
+  def draw?
+    @move == 9
   end
 end

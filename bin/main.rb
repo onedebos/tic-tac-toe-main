@@ -2,63 +2,46 @@
 
 require_relative '../lib/game.rb'
 
-# module creation
-module PlayingGame
-  def draw_board
-    puts "\n"
-    puts " #{@board[0]} | #{@board[1]} | #{@board[2]}"
-    puts '-----------'
-    puts " #{@board[3]} | #{@board[4]} | #{@board[5]}"
-    puts '-----------'
-    puts " #{@board[6]} | #{@board[7]} | #{@board[8]}"
+# class creation
+class Game
+  def initialize
+    puts 'Player 1, enter your name: '
+    @player1 = Player.new(gets.chomp, 'X')
+    puts 'Player 2 enter your name: '
+    @player2 = Player.new(gets.chomp, 'O')
+    @board = Board.new
+    @game_over = false
   end
 
-  def draw_legend
-    puts 'Legend'
-    puts '1 | 2 |3 '
-    puts '4 | 5 |6 '
-    puts '7 | 8 |9 '
-    puts "\n"
-  end
+  def play
+    until @game_over
+      @current_player = @current_player == @player1 ? @player2 : @player1
 
-  def unavailable
-    puts 'This cell is not available.'
-  end
+      valid_move = false
 
-  def did_win
-    puts "#{@current_player.name} wins!"
-  end
+      until valid_move
+        @board.show_board
+        p "It's #{@currentPlayer.name}'s turn to play"
+        p 'Enter a number from 1-9, careful not to enter a number that has been entered before'
+        position = gets.to_i
+        valid_move = true if @board.is_move_valid? position
+      end
 
-  def draw
-    puts "It's a draw."
-  end
+      result = @board.add_move(position, @currentPlayer.symbol)
 
-  def turn
-    puts "Your turn, #{@current_player.name}. Pick a cell by
-    choosing a number between 1-9."
-  end
+      if result == 1
+        p "#{@currentPlayer.name} wins"
+        @board.show_board
+        @game_over = true
+      elsif result == -1
+        p "It's a draw yo!"
+        @board.show_board
+        @game_over = true
 
-  def repeat_input
-    puts ' You need to enter a number between 1 and 9.'
-  end
-
-  def player_input
-    turn
-    input = gets.chomp.to_i
-    if input.between?(1, 9)
-      input - 1
-    else
-      repeat_input
+      end
     end
   end
 end
 
 game = Game.new
-puts 'Welcome to Tic Tac Toe game'
-game.draw_board
-until game.player_wins?
-  game.player_move
-  game.draw_board
-  game.player_wins?
-  game.which_player?
-end
+game.play
