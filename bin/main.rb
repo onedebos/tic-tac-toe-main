@@ -21,16 +21,16 @@ class Game
 
       until valid_move
         @board.show_board
-        p "It's #{@currentPlayer.name}'s turn to play"
+        p "It's #{@current_player.name}'s turn to play"
         p 'Enter a number from 1-9, careful not to enter a number that has been entered before'
         position = gets.to_i
         valid_move = true if @board.is_move_valid? position
       end
 
-      result = @board.add_move(position, @currentPlayer.symbol)
+      result = @board.add_move(position, @current_player.symbol)
 
       if result == 1
-        p "#{@currentPlayer.name} wins"
+        p "#{@current_player.name} wins"
         @board.show_board
         @game_over = true
       elsif result == -1
