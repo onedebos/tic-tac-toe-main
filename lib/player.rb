@@ -10,6 +10,3 @@ class Player
   end
 end
 
-# !works weirdly. Game class cannot be initalized(error) w/o
-# playingGame module being declared here
-# even though Game has access to PG module from main.rb
