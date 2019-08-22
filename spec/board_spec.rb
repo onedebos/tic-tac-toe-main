@@ -6,6 +6,7 @@ RSpec.describe Board do
   let(:board) { Board.new }
 
   describe '#register_play' do
+    
     it 'Register letter to the position specified in a two dimensional array.' do
       letter = 'X'
       row = 1
@@ -13,6 +14,7 @@ RSpec.describe Board do
       board.register_play(row, column, letter)
       expect(board.array[row][column]).to eql(letter)
     end
+
     it 'Does not register another letter in the position specified in a two dimensional array.' do
       letter = 'O'
       row = 2
