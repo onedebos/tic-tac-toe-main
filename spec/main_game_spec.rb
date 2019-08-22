@@ -1,11 +1,13 @@
-require_relative '../lib/game_play.rb'
+# frozen_string_literal: true
 
-RSpec.describe "::Game" do
-  let(:game) {Game.new}
+# require_relative '../lib/game_play.rb'
 
-  describe "#initialize" do
-    it "initializes a new game object" do
-      expect(game.nil?).to eql(false)
-    end
-  end
-end
+# RSpec.describe '::Game' do
+#   let(:game) { Game.new }
+
+#   describe '#initialize' do
+#     it 'initializes a new game object' do
+#       expect(game.nil?).to eql(false)
+#     end
+#   end
+# end
