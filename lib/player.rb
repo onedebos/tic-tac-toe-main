@@ -1,11 +1,11 @@
-# frozen_string_literal: true
+class Player #:nodoc:
+  attr_reader :letter_assigned
+  attr_accessor :moves
+  attr_reader :name
 
-# class defining player
-class Player
-  attr_reader :name, :symbol
-
-  def initialize(name, symbol)
+  def initialize(name, letter_assigned)
     @name = name
-    @symbol = symbol
+    @letter_assigned = letter_assigned
+    @moves = ''
   end
 end
