@@ -7,6 +7,11 @@ Used:
 # Live Version:
 [Repl.it](https://repl.it/@AdebolaOne/tic-tac-toe-main)
 
+# To run
+```
+ruby main.rb
+```
+
 # Authors
 - [Adebola Adeniran](https://github.com/onedebos/)
 - [Amanda Vieira](https://github.com/vieiramanda11/)
