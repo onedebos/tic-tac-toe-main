@@ -11,6 +11,8 @@ Used:
 ```
 ruby main.rb
 ```
+## Automated Tests
+- Currently, there are no automated tests avaailable for this project. This will be implemented at a later date.
 
 # Authors
 - [Adebola Adeniran](https://github.com/onedebos/)
