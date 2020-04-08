@@ -4,6 +4,8 @@ This Project involves creating a tic-tac-toe game in ruby using OOP concepts
 Used:
 - Ruby
 
+![video-demo](./tictac-vid.gif)
+
 # Live Version:
 [Repl.it](https://repl.it/@AdebolaOne/tic-tac-toe-main)
 
